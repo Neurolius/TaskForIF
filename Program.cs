@@ -25,11 +25,7 @@
                 //Копейки
                 if (input % 100 != 11 && input % 100 == 1)
                 {
-                    ruble = " рубль ";
-                }
-                if ((input % 100) % 10 >= 5 && (input % 100) % 10 <= 9 || (input / 100) % 10 == 0 || ((input / 100) >= 11 && (input / 100) <= 20))
-                {
-                    ruble = " рублей ";
+                    penny = " копейка ";
                 }
                 Console.WriteLine(input / 100 + ruble + input % 100 + penny);
             }
