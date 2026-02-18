@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp1
 {
-    internal class Program
+    public class Logic
     {
         public static string GetWord(int number, string form1, string form2, string form3)
         {
@@ -19,7 +19,10 @@
 
             return form3;
         }
-
+    }
+    internal class Program
+    {
+     
         static void Main(string[] args)
         {
             int input = int.Parse(Console.ReadLine());
@@ -30,8 +33,8 @@
             }
             else
             {
-                ruble = GetWord(input / 100, " рубль ", " рубля ", " рублей ");
-                penny = GetWord(input % 100, " копейка ", " копейки ", " копеек ");
+                ruble = Logic.GetWord(input / 100, " рубль ", " рубля ", " рублей ");
+                penny = Logic.GetWord(input % 100, " копейка ", " копейки ", " копеек ");
                 Console.WriteLine(input / 100 + ruble + input % 100 + penny);
             }
         }
