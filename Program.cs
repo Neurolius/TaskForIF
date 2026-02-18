@@ -5,10 +5,35 @@
         static void Main(string[] args)
         {
             int input = int.Parse(Console.ReadLine());
-            if (input < 1 || input > 9999) {
+            string ruble = " рубля ", penny;
+            if (input < 1 || input > 9999)
+            {
                 Console.WriteLine("Значение числа должно быть в рамках: [1;9999]");
             }
-            Console.WriteLine(input/100 + "рублей " + input%100 + "копеек");
+            else
+            {
+                if(input / 100 !=11 && input/100 == 1)
+                {
+                    ruble = " рубль ";
+                }
+                if((input / 100)%10 >=5 && (input / 100)%10 <=9 || (input / 100) % 10 ==0 || ((input / 100) >= 11 && (input / 100) <= 20))
+                {
+                    ruble = " рублей ";
+                }
+                Console.WriteLine(input / 100 + ruble + input % 100 + "копеек");
+            }
         }
     }
 }
+// 1 рубль
+// 2 рубля
+// 3 рубля
+// 4 рубля
+// 5 рублей
+// 6 рублей
+// 7 рублей
+// 8 рублей
+// 9 рублей
+// 10 рублей
+// 11 рублей
+//
