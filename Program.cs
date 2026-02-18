@@ -19,7 +19,14 @@
 
             return form3;
         }
+
+        public static bool inInterval(int number)
+        {
+            return number < 1 || number > 9999;
+        }
+
     }
+
     internal class Program
     {
      
@@ -27,7 +34,8 @@
         {
             int input = int.Parse(Console.ReadLine());
             string ruble, penny;
-            if (input < 1 || input > 9999)
+
+            if (Logic.inInterval(input))
             {
                 Console.WriteLine("Значение числа должно быть в рамках: [1;9999]");
             }
