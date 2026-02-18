@@ -6,15 +6,15 @@
         {
            
             number = number % 100;
-            int lastDigit = number % 10;
+            int LastDigit = number % 10;
 
             if (number >= 11 && number <= 19)
                 return form3;
 
-            if (lastDigit == 1)
+            if (LastDigit == 1)
                 return form1;
 
-            if (lastDigit >= 2 && lastDigit <= 4)
+            if (LastDigit >= 2 && LastDigit <= 4)
                 return form2;
 
             return form3;
