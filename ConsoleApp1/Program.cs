@@ -25,6 +25,21 @@
             return number < 1 || number > 9999;
         }
 
+        public static void getResult(int input) {
+
+            if (inInterval(input))
+            {
+                Console.WriteLine("Значение числа должно быть в рамках: [1;9999]");
+                return;
+            }
+            else
+            {
+                string ruble = GetWord(input / 100, " рубль ", " рубля ", " рублей "),
+                    penny = GetWord(input % 100, " копейка ", " копейки ", " копеек ");
+                Console.WriteLine(input / 100 + ruble + input % 100 + penny);
+                return;
+            }
+        }
     }
 
     internal class Program
@@ -33,18 +48,7 @@
         static void Main(string[] args)
         {
             int input = int.Parse(Console.ReadLine());
-            string ruble, penny;
-
-            if (Logic.inInterval(input))
-            {
-                Console.WriteLine("Значение числа должно быть в рамках: [1;9999]");
-            }
-            else
-            {
-                ruble = Logic.GetWord(input / 100, " рубль ", " рубля ", " рублей ");
-                penny = Logic.GetWord(input % 100, " копейка ", " копейки ", " копеек ");
-                Console.WriteLine(input / 100 + ruble + input % 100 + penny);
-            }
+            Logic.getResult(input);
         }
     }
 }
