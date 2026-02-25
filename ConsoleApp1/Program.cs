@@ -25,19 +25,17 @@
             return number < 1 || number > 9999;
         }
 
-        public static void getResult(int input) {
+        public static string ConvertToMany(int input) {
 
             if (inInterval(input))
             {
-                Console.WriteLine("Значение числа должно быть в рамках: [1;9999]");
-                return;
+                 return "Значение числа должно быть в рамках: [1;9999]";
             }
             else
             {
                 string ruble = GetWord(input / 100, " рубль ", " рубля ", " рублей "),
                     penny = GetWord(input % 100, " копейка ", " копейки ", " копеек ");
-                Console.WriteLine(input / 100 + ruble + input % 100 + penny);
-                return;
+                return input / 100 + ruble + input % 100 + penny;
             }
         }
     }
@@ -48,7 +46,8 @@
         static void Main(string[] args)
         {
             int input = int.Parse(Console.ReadLine());
-            Logic.getResult(input);
+            string result = Logic.ConvertToMany(input);
+            Console.WriteLine(result);
         }
     }
 }
