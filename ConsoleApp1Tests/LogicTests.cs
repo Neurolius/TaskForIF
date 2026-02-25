@@ -63,13 +63,30 @@ namespace ConsoleApp1.Tests
         [TestMethod()]
         public void inIntervalTest()
         {
-           
-            for(int i = 0; i<10000;i++)
+
+            for (int i = 0; i < 10000; i++)
             {
                 bool expected = i < 1 || i > 9999;
                 bool result = Logic.inInterval(i);
                 Assert.AreEqual(expected, result, $"Ошибка при числе {i}");
             }
+        }
+
+        [TestMethod()]
+        public void ConvertToManyTest()
+        {
+            int[] errorNumbers = { 0, 10000 };
+            string expectedError = "Значение числа должно быть в рамках: [1;9999]"
+                    , expectedSuccesful = "56 рублей 56 копеек ", actual;
+
+            foreach (var n in errorNumbers)
+            {
+                actual = Logic.ConvertToMany(n);
+                 Assert.AreEqual(expectedError, actual, "Ошибка в определении вхождения в интервал");
+            }
+            actual = Logic.ConvertToMany(5656);
+            Assert.AreEqual(expectedSuccesful, actual, "При расчете итогового ответа");
+            
         }
     }
 }
