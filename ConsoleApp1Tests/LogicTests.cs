@@ -1,9 +1,14 @@
-﻿namespace ConsoleApp1.Tests
+﻿using ConsoleApp1;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Numerics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace ConsoleApp1.Tests
 {
     [TestClass()]
     public class LogicTests
     {
-        
+
         [TestMethod()]
         public void GetWordRubleTest()
         {
@@ -24,9 +29,10 @@
                     expected = " рублей ";
 
                 string actual = Logic.GetWord(i, " рубль ", " рубля ", " рублей ");
-                
+
                 Assert.AreEqual(expected, actual, $"Ошибка при числе {i}");
             }
+
         }
 
         [TestMethod()]
@@ -54,5 +60,16 @@
             }
         }
 
+        [TestMethod()]
+        public void inIntervalTest()
+        {
+           
+            for(int i = 0; i<10000;i++)
+            {
+                bool expected = i < 1 || i > 9999;
+                bool result = Logic.inInterval(i);
+                Assert.AreEqual(expected, result, $"Ошибка при числе {i}");
+            }
+        }
     }
 }
