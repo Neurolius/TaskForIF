@@ -25,7 +25,7 @@
             return number < 1 || number > 9999;
         }
 
-        public static string ConvertToMany(int input) {
+        public static string ConvertToMoney(int input) {
 
             if (inInterval(input))
             {
@@ -46,7 +46,7 @@
         static void Main(string[] args)
         {
             int input = int.Parse(Console.ReadLine());
-            string result = Logic.ConvertToMany(input);
+            string result = Logic.ConvertToMoney(input);
             Console.WriteLine(result);
         }
     }
