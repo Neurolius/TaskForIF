@@ -90,8 +90,8 @@ namespace ConsoleApp1.Tests
         [TestMethod()]
         public void ConvertToMoneyTest()
         {
-            string expectedSucces = "56 рублей 56 копеек ", actual;
-            actual = Logic.ConvertToMoney(5656);
+            string expectedSucces = "56 рублей 56 копеек";
+            string actual = Logic.ConvertToMoney(5656);
             Assert.AreEqual(expectedSucces, actual, "При расчете итогового ответа");
         }
     }

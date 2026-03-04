@@ -6,15 +6,15 @@
         {
            
             number = number % 100;
-            int LastDigit = number % 10;
+            int lastDigit = number % 10;
 
             if (number >= 11 && number <= 19)
                 return form3;
 
-            if (LastDigit == 1)
+            if (lastDigit == 1)
                 return form1;
 
-            if (LastDigit >= 2 && LastDigit <= 4)
+            if (lastDigit >= 2 && lastDigit <= 4)
                 return form2;
 
             return form3;
@@ -33,9 +33,13 @@
             }
             else
             {
-                string ruble = GetWord(input / 100, " рубль ", " рубля ", " рублей "),
-                    penny = GetWord(input % 100, " копейка ", " копейки ", " копеек ");
-                return input / 100 + ruble + input % 100 + penny;
+                string ruble = GetWord(input / 100, "рубль", "рубля", "рублей"),
+                    penny = GetWord(input % 100, "копейка", "копейки", "копеек");
+
+                if (input % 100 == 0)
+                    return $"{input / 100} {ruble}";
+
+                return $"{input / 100} {ruble} {input % 100} {penny}";
             }
         }
     }
